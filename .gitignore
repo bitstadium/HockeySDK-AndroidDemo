@@ -1,0 +1,14 @@
+.idea/
+bin/
+gen/
+gen-external-apklibs/
+out/
+target/
+.DS_Store
+*.iml
+.gradle/
+build/
+/*/build/
+local.properties
+*.log
+gradle.properties
