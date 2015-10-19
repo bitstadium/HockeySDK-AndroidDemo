@@ -61,7 +61,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 2. Feedback, showing the feedback activity
+        // 2. Updates, check for updates
+
+        Button updateButton = (Button) findViewById(R.id.update_button);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkForUpdates();
+            }
+        });
+
+        // 3. Feedback, showing the feedback activity
 
         Button feedbackButton = (Button) findViewById(R.id.feedback_button);
         feedbackButton.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         FeedbackManager.register(this);
 
-        // 3. Feedback, show Screenshot for Feedback action
+        // 4. Feedback, show Screenshot for Feedback action
 
         Button feedbackScreenshotButton = (Button) findViewById(R.id.button_feedback_screenshot);
         feedbackScreenshotButton.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 4. Enable UpdateManager
-        checkForUpdates();
     }
 
     @Override
@@ -99,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkForUpdates() {
-        // Remove this for store builds!
         UpdateManager.register(this);
     }
 

@@ -2,10 +2,12 @@
     <string name="app_name">HockeyApp Demo</string>
 
     <string name="section_crash_reporting">Crash Reporting</string>
+    <string name="section_update">Updates</string>
     <string name="section_feedback">Feedback</string>
     <string name="section_login">Login Manager</string>
 
     <string name="action_crash">Crash me</string>
+    <string name="action_update">Check for Updates</string>
     <string name="action_feedback">Send Feedback</string>
     <string name="action_feedback_screenshot">Enable Screenshot for Feedback</string>
     <string name="action_login">Login</string>
