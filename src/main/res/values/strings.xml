@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hockey SDK Sample</string>
+    <string name="app_name">HockeyApp Demo</string>
 
     <string name="section_crash_reporting">Crash Reporting</string>
     <string name="section_feedback">Feedback</string>
