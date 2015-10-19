@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">HockeyApp Demo</string>
 
+    <!-- Main Activity -->
+
     <string name="section_crash_reporting">Crash Reporting</string>
     <string name="section_update">Updates</string>
     <string name="section_feedback">Feedback</string>
@@ -11,4 +13,11 @@
     <string name="action_feedback">Send Feedback</string>
     <string name="action_feedback_screenshot">Enable Screenshot for Feedback</string>
     <string name="action_login">Login</string>
+
+    <!-- Private Activity -->
+    <string name="title_activity_private">Private Activity</string>
+
+    <string name="private_activity_subline">This is a private activity.</string>
+
+
 </resources>

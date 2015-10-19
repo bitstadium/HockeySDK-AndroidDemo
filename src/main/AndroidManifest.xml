@@ -1,8 +1,13 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="net.hockeyapp.hockeysdksample">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.hockeyapp.demo.android" >
 
-    <application android:allowBackup="true" android:fullBackupContent="false" android:label="@string/app_name" android:icon="@mipmap/app_icon"
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -17,6 +22,13 @@
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="${HOCKEYAPP_APP_ID}" />
 
+        <activity
+            android:name="net.hockeyapp.demo.android.PrivateActivity"
+            android:label="@string/title_activity_private">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
