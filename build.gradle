@@ -10,7 +10,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0.0"
-        manifestPlaceholders = [HOCKEYAPP_APP_ID: hockeyapp_app_id]
+        manifestPlaceholders = [HOCKEYAPP_APP_ID: hockeyapp_app_id, HOCKEYAPP_APP_SECRET: hockeyapp_app_secret]
     }
     buildTypes {
         release {

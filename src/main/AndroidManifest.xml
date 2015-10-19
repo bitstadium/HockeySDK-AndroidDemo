@@ -21,6 +21,9 @@
         <meta-data
             android:name="net.hockeyapp.android.appIdentifier"
             android:value="${HOCKEYAPP_APP_ID}" />
+        <meta-data
+            android:name="net.hockeyapp.android.appSecret"
+            android:value="${HOCKEYAPP_APP_SECRET}" />
 
         <activity
             android:name="net.hockeyapp.demo.android.PrivateActivity"

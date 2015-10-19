@@ -12,7 +12,8 @@
     <string name="action_update">Check for Updates</string>
     <string name="action_feedback">Send Feedback</string>
     <string name="action_feedback_screenshot">Enable Screenshot for Feedback</string>
-    <string name="action_login">Login</string>
+    <string name="action_login_email">Login w/ email</string>
+    <string name="action_login_full">Login full</string>
 
     <!-- Private Activity -->
     <string name="title_activity_private">Private Activity</string>

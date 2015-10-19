@@ -1,12 +1,12 @@
 package net.hockeyapp.demo.android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.FeedbackManager;
-import net.hockeyapp.android.UpdateManager;
+import net.hockeyapp.android.*;
+import net.hockeyapp.android.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +93,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 5. Login, show login dialog then private activity
+
+        Button loginEmailButton = (Button) findViewById(R.id.button_login_email);
+        loginEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privateActivityIntent = new Intent(MainActivity.this, PrivateActivity.class);
+                doLoginCheck(LoginManager.LOGIN_MODE_EMAIL_ONLY, privateActivityIntent);
+            }
+        });
+
+        Button loginFullButton = (Button) findViewById(R.id.button_login_full);
+        loginFullButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privateActivityIntent = new Intent(MainActivity.this, PrivateActivity.class);
+                doLoginCheck(LoginManager.LOGIN_MODE_EMAIL_PASSWORD, privateActivityIntent);
+            }
+        });
+
     }
 
     @Override
@@ -108,6 +128,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkForUpdates() {
         UpdateManager.register(this);
+    }
+
+    private void doLoginCheck(int loginMode, final Intent onSuccessIntent) {
+        LoginManager.register(this, Util.getAppIdentifier(this), Util.getManifestString(this, "net.hockeyapp.android.appSecret"), loginMode, new LoginManagerListener() {
+            @Override
+            public void onSuccess() {
+                startActivity(onSuccessIntent);
+            }
+        });
+
+        LoginManager.verifyLogin(this, getIntent());
     }
 
 }
