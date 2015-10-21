@@ -1,5 +1,6 @@
 package net.hockeyapp.demo.android;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import net.hockeyapp.android.*;
 import net.hockeyapp.android.utils.Util;
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,8 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private boolean mScreenshotActivitySet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +75,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 3. Feedback, showing the feedback activity
+        Button updateCustomButton = (Button) findViewById(R.id.button_update_custom);
+        updateCustomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkForUpdatesCustom();
+            }
+        });
+
+
+        // 3.1 Feedback, showing the feedback activity
 
         Button feedbackButton = (Button) findViewById(R.id.feedback_button);
         feedbackButton.setOnClickListener(new View.OnClickListener() {
@@ -83,13 +96,19 @@ public class MainActivity extends AppCompatActivity {
 
         FeedbackManager.register(this);
 
-        // 4. Feedback, show Screenshot for Feedback action
+        // 3.2 Feedback, show Screenshot for Feedback action
 
         Button feedbackScreenshotButton = (Button) findViewById(R.id.button_feedback_screenshot);
         feedbackScreenshotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FeedbackManager.setActivityForScreenshot(MainActivity.this);
+                if (!mScreenshotActivitySet) {
+                    FeedbackManager.setActivityForScreenshot(MainActivity.this);
+                } else {
+                    FeedbackManager.unsetCurrentActivityForScreenshot(MainActivity.this);
+                }
+                mScreenshotActivitySet = !mScreenshotActivitySet;
+
             }
         });
 
@@ -128,6 +147,32 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkForUpdates() {
         UpdateManager.register(this);
+    }
+
+    private void checkForUpdatesCustom() {
+        UpdateManager.register(this, Util.getAppIdentifier(this), new UpdateManagerListener() {
+            @Override
+            public void onNoUpdateAvailable() {
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+                        .setTitle(R.string.no_updates_title)
+                        .setMessage(R.string.no_updates_message)
+                        .setPositiveButton(R.string.ok, null)
+                        .create();
+                alertDialog.show();
+            }
+
+            @Override
+            public void onUpdateAvailable(JSONArray data, String url) {
+                super.onUpdateAvailable(data, url);
+
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+                        .setTitle(R.string.updates_title)
+                        .setMessage(R.string.updates_message)
+                        .setPositiveButton(R.string.ok, null)
+                        .create();
+                alertDialog.show();
+            }
+        });
     }
 
     private void doLoginCheck(int loginMode, final Intent onSuccessIntent) {

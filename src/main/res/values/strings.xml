@@ -19,6 +19,12 @@
     <string name="title_activity_private">Private Activity</string>
 
     <string name="private_activity_subline">This is a private activity.</string>
+    <string name="action_update_custom">Custom Check for Updates</string>
+    <string name="no_updates_title">No Updates</string>
+    <string name="no_updates_message">There are currently no updates available.</string>
+    <string name="ok">OK</string>
+    <string name="updates_title">Update available</string>
+    <string name="updates_message">An update is available for download.</string>
 
 
 </resources>

@@ -34,6 +34,13 @@
         android:id="@+id/update_button"
         android:text="@string/action_update" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_update_custom"
+        android:text="@string/action_update_custom"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
