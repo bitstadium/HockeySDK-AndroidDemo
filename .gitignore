@@ -12,3 +12,4 @@ build/
 local.properties
 *.log
 infer-out
+app/gradle.properties
