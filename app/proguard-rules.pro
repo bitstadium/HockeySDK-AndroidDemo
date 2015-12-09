@@ -15,3 +15,11 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keep public class javax.net.ssl.**
+-keepclassmembers public class javax.net.ssl.** {
+  *;
+}
+
+-dontwarn net.hockeyapp.android.UpdateActivity
+-dontwarn net.hockeyapp.android.UpdateFragment
