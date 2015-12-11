@@ -23,5 +23,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'net.hockeyapp.android:HockeySDK:3.7.0-beta.2'
+    compile 'net.hockeyapp.android:HockeySDK:3.7.0-rc.1'
 }
