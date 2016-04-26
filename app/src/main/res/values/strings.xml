@@ -28,6 +28,7 @@
     <string name="action_init_metrics">Register MetricsManager</string>
     <string name="action_disable_metrics">Disable Metrics</string>
     <string name="action_erable_metrics">Enable Metrics</string>
+    <string name="section_metrics">User Metrics</string>
 
 
 </resources>
