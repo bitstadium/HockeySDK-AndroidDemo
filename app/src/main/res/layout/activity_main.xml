@@ -85,6 +85,19 @@
             android:layout_height="wrap_content"
             android:text="@string/action_login_full"/>
 
+        <Button
+            android:id="@+id/button_init_metrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_init_metrics"
+            />
+
+        <Button
+            android:id="@+id/button_enable_metrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_disable_metrics"/>
+
     </LinearLayout>
 
 </ScrollView>
