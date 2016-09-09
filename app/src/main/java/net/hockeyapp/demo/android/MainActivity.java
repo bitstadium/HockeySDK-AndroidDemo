@@ -11,10 +11,13 @@ import net.hockeyapp.android.*;
 import net.hockeyapp.android.metrics.MetricsManager;
 import net.hockeyapp.android.utils.HockeyLog;
 import net.hockeyapp.android.utils.Util;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -127,6 +130,19 @@ public class MainActivity extends AppCompatActivity {
                     enableMetricsButton.setText(getText(R.string.action_disable_metrics));
 
                 }
+            }
+        });
+
+        final Button sendEventButton = (Button) findViewById(R.id.button_send_event);
+        sendEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, String> properties = new HashMap<>();
+                properties.put("property-a", "value-a");
+                properties.put("date", new java.util.Date().toString());
+                Map<String, Double> measurements = new HashMap<>();
+                measurements.put("time", Math.random());
+                MetricsManager.trackEvent("Test Event", properties, measurements);
             }
         });
 
