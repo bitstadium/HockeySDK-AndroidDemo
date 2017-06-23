@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         registerMetricsManagerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MetricsManager.register(MainActivity.this, getApplication());
+                MetricsManager.register(getApplication());
             }
         });
 
